@@ -3,6 +3,10 @@
     --secondary: #000000;
     --accent: #ff0000;
     --spacing: 2rem;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --safe-bottom: env(safe-area-inset-bottom);
 }
 
 * {
@@ -86,15 +90,23 @@ h2 {
 }
 
 .urun-kart {
-    background: var(--primary);
-    padding: 2rem;
-    border: 1px solid var(--secondary);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
 }
 
-.urun-kart:hover {
-    transform: translateY(-5px);
+.urun-hover-effect {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.urun-kart:hover .urun-hover-effect,
+.urun-kart:focus-within .urun-hover-effect {
+    opacity: 1;
 }
 
 footer {
@@ -429,6 +441,16 @@ details.bakim-kart[open] summary::after {
     border: 1px solid var(--secondary);
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
+    min-height: 44px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent);
 }
 
 .iletisim-form button {
@@ -482,4 +504,197 @@ details.bakim-kart[open] summary::after {
 .iletisim-form button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+}
+
+/* Mobil menü için stil eklemeleri */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--primary);
+        padding: 1rem;
+        transform: translateY(-100%);
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+}
+
+/* Ürünler bölümü için yeni stiller */
+.products-section {
+    padding: 4rem 0;
+    background: var(--primary);
+}
+
+.urun-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.urun-kart {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--primary);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.urun-image-container {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.urun-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.urun-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.urun-kart:hover .urun-overlay,
+.urun-kart:focus-within .urun-overlay {
+    opacity: 1;
+}
+
+.urun-kart:hover .urun-image,
+.urun-kart:focus-within .urun-image {
+    transform: scale(1.05);
+}
+
+.urun-overlay h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.urun-description {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.urun-link-text {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.urun-kart:hover .urun-overlay h3,
+.urun-kart:hover .urun-description,
+.urun-kart:hover .urun-link-text,
+.urun-kart:focus-within .urun-overlay h3,
+.urun-kart:focus-within .urun-description,
+.urun-kart:focus-within .urun-link-text {
+    transform: translateY(0);
+}
+
+/* Mobil responsive düzenlemeler */
+@media (max-width: 768px) {
+    .urun-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .urun-overlay {
+        opacity: 1;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0.1) 100%
+        );
+    }
+
+    .urun-overlay h3,
+    .urun-description,
+    .urun-link-text {
+        transform: translateY(0);
+    }
+}
+
+/* Ürün kartları için link stillerini ekleyelim */
+.urun-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.urun-kart {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--primary);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    height: 100%;
+}
+
+/* Hover efektlerini link elementine taşıyalım */
+.urun-link:hover .urun-overlay,
+.urun-link:focus .urun-overlay {
+    opacity: 1;
+}
+
+.urun-link:hover .urun-image,
+.urun-link:focus .urun-image {
+    transform: scale(1.05);
+}
+
+.urun-link:hover .urun-overlay h3,
+.urun-link:hover .urun-description,
+.urun-link:hover .urun-link-text,
+.urun-link:focus .urun-overlay h3,
+.urun-link:focus .urun-description,
+.urun-link:focus .urun-link-text {
+    transform: translateY(0);
 } 

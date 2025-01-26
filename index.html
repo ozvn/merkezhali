@@ -64,15 +64,19 @@
 
         <nav>
             <div class="nav-container">
-                <img src="logo.png" alt="Merkez Halı Logo" class="logo">
-                <div class="nav-links">
-                    <a href="#">anasayfa</a>
-                    <a href="#urunler">ürünlerimiz</a>
-                    <a href="#yerimiz">yerimiz</a>
-                    <a href="#hakkimizda">hakkımızda</a>
-                    <a href="#iletisim">iletişim</a>
-
+                <img src="logo.png" alt="Merkez Halı Logo" class="logo" width="50" height="50">
+                <div class="nav-links" role="navigation" aria-label="Ana menü">
+                    <a href="#" aria-label="Ana sayfaya git">anasayfa</a>
+                    <a href="#urunler" aria-label="Ürünlerimiz bölümüne git">ürünlerimiz</a>
+                    <a href="#yerimiz" aria-label="Konum bilgilerimize git">yerimiz</a>
+                    <a href="#hakkimizda" aria-label="Hakkımızda bölümüne git">hakkımızda</a>
+                    <a href="#iletisim" aria-label="İletişim formuna git">iletişim</a>
                 </div>
+                <button class="mobile-menu-btn" aria-label="Mobil menüyü aç/kapat">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
     </header>
@@ -83,20 +87,85 @@
             <p>1983'ten beri</p>
         </section>
 
-        <section id="urunler2">
+        <section id="urunler2" class="products-section">
             <h2>ürünlerimiz</h2>
             <div class="urun-grid">
-                <div class="urun-kart">
-                    <a href="https://g.co/kgs/SKL3Gwj" target="_blank" style="text-decoration: none;"><h3 style="color: black; font-family: Montserrat;">makine halısı</h3></a>
+                <div class="urun-kart" role="button" tabindex="0">
+                    <a href="https://g.co/kgs/RXuoryQ" target="_blank" rel="noopener noreferrer" class="urun-link">
+                        <div class="urun-image-container">
+                            <img src="pelus.jpg" alt="Post Halı" class="urun-image" loading="lazy">
+                            <div class="urun-overlay">
+                                <h3>post halı</h3>
+                                <p class="urun-description">yumuşak dokulu, konforlu yaşam</p>
+                                <span class="urun-link-text">detaylı bilgi</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="urun-kart">
-                    <a href="https://g.co/kgs/SKL3Gwj" target="_blank" style="text-decoration: none;"><h3 style="color: black; font-family: Montserrat;">organik halı</h3></a>
+
+                <div class="urun-kart" role="button" tabindex="0">
+                    <a href="https://g.co/kgs/RXuoryQ" target="_blank" rel="noopener noreferrer" class="urun-link">
+                        <div class="urun-image-container">
+                            <img src="makine-halisi.png" alt="Makine Halısı" class="urun-image" loading="lazy">
+                            <div class="urun-overlay">
+                                <h3>makine halısı</h3>
+                                <p class="urun-description">modern desenler, dayanıklı dokuma</p>
+                                <span class="urun-link-text">detaylı bilgi</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="urun-kart">
-                    <a href="https://g.co/kgs/SKL3Gwj" target="_blank" style="text-decoration: none;"><h3 style="color: black; font-family: Montserrat;">yıkanabilir halı</h3></a>
+
+                <div class="urun-kart" role="button" tabindex="0">
+                    <a href="https://g.co/kgs/RXuoryQ" target="_blank" rel="noopener noreferrer" class="urun-link">
+                        <div class="urun-image-container">
+                            <img src="organik-hali.png" alt="Organik Halı" class="urun-image" loading="lazy">
+                            <div class="urun-overlay">
+                                <h3>organik halı</h3>
+                                <p class="urun-description">doğal malzeme, sağlıklı yaşam</p>
+                                <span class="urun-link-text">detaylı bilgi</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="urun-kart">
-                    <a href="https://g.co/kgs/SKL3Gwj" target="_blank" style="text-decoration: none;"><h3 style="color: black; font-family: Montserrat;">kilim</h3></a>
+
+                <div class="urun-kart" role="button" tabindex="0">
+                    <a href="https://g.co/kgs/RXuoryQ" target="_blank" rel="noopener noreferrer" class="urun-link">
+                        <div class="urun-image-container">
+                            <img src="yikanabilir-hali.png" alt="Yıkanabilir Halı" class="urun-image" loading="lazy">
+                            <div class="urun-overlay">
+                                <h3>yıkanabilir halı</h3>
+                                <p class="urun-description">pratik kullanım, kolay temizlik</p>
+                                <span class="urun-link-text">detaylı bilgi</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="urun-kart" role="button" tabindex="0">
+                    <a href="https://g.co/kgs/RXuoryQ" target="_blank" rel="noopener noreferrer" class="urun-link">
+                        <div class="urun-image-container">
+                            <img src="kilim.jpg" alt="Kilim" class="urun-image" loading="lazy">
+                            <div class="urun-overlay">
+                                <h3>kilim</h3>
+                                <p class="urun-description">geleneksel motifler, modern yorumlar</p>
+                                <span class="urun-link-text">detaylı bilgi</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="urun-kart" role="button" tabindex="0">
+                    <a href="https://g.co/kgs/RXuoryQ" target="_blank" rel="noopener noreferrer" class="urun-link">
+                        <div class="urun-image-container">
+                            <img src="100tarak.jpg" alt="100 Tarak Halı" class="urun-image" loading="lazy">
+                            <div class="urun-overlay">
+                                <h3>100 tarak halı</h3>
+                                <p class="urun-description">yumuşacık doku, premium kalite</p>
+                                <span class="urun-link-text">detaylı bilgi</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -149,7 +218,7 @@
                         <ul>
                             <li><span class="icon">🧹</span> halılarınızı düzenli süpürmeniz çok önemlidir</li>
                             <li><span class="icon">🚪</span> giriş paspası kullanarak kirleri azaltabilirsiniz</li>
-                            <li><span class="icon">🏠</span> mutfakta akrilik halılar daha kullanışlıdır</li>
+                            <li><span class="icon">��</span> mutfakta akrilik halılar daha kullanışlıdır</li>
                         </ul>
                     </div>
                 </div>

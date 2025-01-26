@@ -29,35 +29,49 @@ document.querySelectorAll('section').forEach((section) => {
     observer.observe(section);
 });
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+// Mobil menü işlevselliği
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuBtn?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 
+        navLinks.classList.contains('active'));
+});
+
+// Form gönderimi için loading state ve hata yönetimi iyileştirmesi
+const contactForm = document.getElementById('contact-form');
+const submitButton = contactForm?.querySelector('button[type="submit"]');
+
+async function handleSubmit(event) {
     event.preventDefault();
     
-    const button = this.querySelector('button');
-    const statusDiv = document.getElementById('form-status');
-    button.disabled = true;
-    button.textContent = 'gönderiliyor...';
+    if (!contactForm) return;
     
-    const templateParams = {
-        from_name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value,
-        to_email: 'iletisim@merkezhali.com'
-    };
+    try {
+        submitButton.disabled = true;
+        submitButton.innerHTML = `
+            <span class="loading-spinner"></span>
+            <span>gönderiliyor...</span>
+        `;
 
-    emailjs.send('service_szed8de', 'template_tvd6zz6', templateParams)
-        .then(function() {
-            statusDiv.textContent = 'mesajınız başarıyla gönderildi!';
-            statusDiv.className = 'form-status success';
-            button.textContent = 'gönder';
-            button.disabled = false;
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            statusDiv.textContent = 'bir hata oluştu, lütfen tekrar deneyin';
-            statusDiv.className = 'form-status error';
-            button.textContent = 'gönder';
-            button.disabled = false;
-        });
-});
+        const formData = new FormData(contactForm);
+        const templateParams = Object.fromEntries(formData);
+        
+        await emailjs.send('service_szed8de', 'template_tvd6zz6', templateParams);
+        
+        showStatus('success', 'mesajınız başarıyla gönderildi!');
+        contactForm.reset();
+    } catch (error) {
+        showStatus('error', 'bir hata oluştu, lütfen tekrar deneyin');
+        console.error('Form submission error:', error);
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'gönder';
+    }
+}
+
+contactForm?.addEventListener('submit', handleSubmit);
 
 function toggleBakimContent(header) {
     const allContents = document.querySelectorAll('.bakim-content');
