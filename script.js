@@ -97,7 +97,29 @@ function toggleBakimContent(header) {
     }
 }
 
-// Magnific Popup için gerekli JavaScript
+// Instagram card carousel initialization
+$(document).ready(function() {
+  $(".card-carousel").slick({
+    slidesToShow: 1,
+    dots: false,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+});
+
+// Mevcut Magnific Popup kodu aynen kalacak
 $(document).ready(function() {
     $('.gallery-link').magnificPopup({
         type: 'image',
