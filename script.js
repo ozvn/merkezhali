@@ -117,9 +117,6 @@ $(document).ready(function() {
             enabled: true,
             navigateByImgClick: false,
             tCounter: ''
-        },
-        disableOn: function() {
-            return $(window).width() > 640;
         }
     });
 }); 

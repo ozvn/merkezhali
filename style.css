@@ -786,4 +786,14 @@ html:not(.touch) .gallery-image:hover figcaption {
     text-shadow: 0 0 1px rgba(0,0,0,0.2);
     top: auto;
     bottom: 2em;
+}
+
+.collection-info {
+    text-align: center;
+    margin: 1rem auto 2rem;
+    max-width: 800px;
+    color: var(--primary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 0 1rem;
 } 
