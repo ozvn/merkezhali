@@ -95,4 +95,31 @@ function toggleBakimContent(header) {
         allHeaders.forEach(header => header.classList.add('active'));
         allIcons.forEach(icon => icon.textContent = '-');
     }
-} 
+}
+
+// Magnific Popup için gerekli JavaScript
+$(document).ready(function() {
+    $('.gallery-link').magnificPopup({
+        type: 'image',
+        closeOnContentClick: true,
+        closeBtnInside: false,
+        mainClass: 'mfp-with-zoom mfp-img-mobile',
+        image: {
+            verticalFit: true,
+            titleSrc: function(item) {
+                return item.el.find('figcaption').text() || item.el.attr('title');
+            }
+        },
+        zoom: {
+            enabled: true
+        },
+        gallery: {
+            enabled: true,
+            navigateByImgClick: false,
+            tCounter: ''
+        },
+        disableOn: function() {
+            return $(window).width() > 640;
+        }
+    });
+}); 
