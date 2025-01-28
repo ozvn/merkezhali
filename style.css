@@ -473,6 +473,16 @@ details.bakim-kart[open] summary::after {
     font-weight: 500;
 }
 
+.email-info a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.email-info a:hover {
+    opacity: 0.8;
+}
+
 .social-link {
     color: var(--secondary);
     text-decoration: none;
@@ -780,7 +790,6 @@ html:not(.touch) .gallery-image:hover figcaption {
     transition: all 0.2s ease 0.3s;
 }
 
-/* Mobil için özel stiller */
 .touch .gallery-image figcaption {
     color: rgba(255,255,255,1);
     text-shadow: 0 0 1px rgba(0,0,0,0.2);
