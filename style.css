@@ -933,4 +933,85 @@ html:not(.touch) .gallery-image:hover figcaption {
 
 .card-footer li a:hover {
     color: #0056b3;
+}
+
+/* Empera koleksiyonları listesi için çok sütunlu düzen */
+.empera-list {
+    columns: 5 200px;
+    -webkit-columns: 5 200px;
+    -moz-columns: 5 200px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    column-gap: 48px;
+}
+
+.empera-list li {
+    margin-bottom: 1.2em;
+    break-inside: avoid;
+    color: #222;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+.empera-collections-list h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.2em;
+    margin-top: 0.5em;
+    color: #222;
+}
+
+/* Pierre Cardin koleksiyonları üstte grid olarak */
+.featured-collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 2.5em;
+    margin-top: 1em;
+}
+@media (max-width: 900px) {
+    .featured-collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .featured-collections-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.featured-collection {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 1em 1em 0.5em 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.featured-collection img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.7em;
+}
+.featured-caption {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 0.2em;
+}
+.featured-caption span {
+    display: block;
+    font-size: 0.98rem;
+    color: #888;
+    font-weight: 400;
+    margin-top: 0.1em;
+    letter-spacing: 0.01em;
 } 
